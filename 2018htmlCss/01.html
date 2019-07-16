@@ -14,13 +14,12 @@
 
         .item::after {
             content: ' ';
-            transition: width 0.3s;
-            width: 0%;
+            transition: transform 0.3s;
+            width: 100%;
             display: block;
             border-bottom: 2px solid blue;
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%)
+            transform: scaleX(0)
         }
 
         .active {
@@ -29,7 +28,7 @@
         }
 
         .active .item::after {
-            width: 100%;
+            transform: scaleX(1)
         }
     </style>
 </head>
@@ -41,12 +40,14 @@
         const toToggle = document.getElementById('toToggle');
         function toggle() {
             toToggle.classList.toggle('active');
-        } 
-        
+        }
+
     </script>
     <pre>
 ### 动手
 - [ ] 如何通过修改贝塞尔曲线，让这个动效更贴近自然
+### 改进
+- 使用 transform scaleX 实现动画,及居中transform-origin
 
 ### 资源        
 - [CSS3 新特性兼容方法总结](https://www.cnblogs.com/jesse131/p/5441199.html)
