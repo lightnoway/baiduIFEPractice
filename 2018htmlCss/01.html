@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>No.1 - 制作一个简单的菜单动画效果</title>
+    <style>
+        .item {
+            position: relative;
+            display: inline-block;
+        }
+
+        .item::after {
+            content: ' ';
+            transition: width 0.3s;
+            width: 0%;
+            display: block;
+            border-bottom: 2px solid blue;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        .active {
+            transition: color 0.3s;
+            color: blue;
+        }
+
+        .active .item::after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id='toToggle'><span class="item">前端学院</span></h2>
+    <button onclick='toggle()'>切换样式</button>
+    <script>
+        const toToggle = document.getElementById('toToggle');
+        function toggle() {
+            toToggle.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
